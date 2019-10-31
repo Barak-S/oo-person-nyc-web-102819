@@ -28,13 +28,9 @@ class Person
     end
 
     def hygiene=(num)
-        if num > 10
-            @hygiene= 10
-        elsif num < 0
-            @hygiene = 0
-        elsif num <=10 && num >=0
-            @hygiene = num
-        end
+        @hygiene = num
+        @hygiene = 10 if num > 10
+        @hygiene = 0 if num <0            
     end
 
     def happy?
@@ -42,8 +38,7 @@ class Person
             return true
         else
             return false
-        end
-        
+        end 
     end
 
     def clean?
@@ -60,22 +55,18 @@ class Person
     end 
 
     def take_bath
-        # @hygiene += 4
         self.hygiene=(@hygiene+=4)
         return "♪ Rub-a-dub just relaxing in the tub ♫"
     end
 
     def work_out
-        # self.happiness=(@happiness+=2)
         self.happiness +=2
         self.hygiene -=3
         return "♪ another one bites the dust ♫"
     end
 
     def call_friend(friend)
-        # self.happiness=(@happiness+=3)
         self.happiness +=3
-        # friend.happiness=(friend.happiness+=3)
         friend.happiness +=3
         
         return "Hi #{friend.name}! It's #{self.name}. How are you?"
@@ -93,15 +84,9 @@ class Person
         else
             "blah blah blah blah blah"
         end
-
-
     end
-    
-    
-
-
 end
 
-barak = Person.new("barak")
+
 
 
